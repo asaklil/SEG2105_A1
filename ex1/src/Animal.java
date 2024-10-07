@@ -1,4 +1,5 @@
-package ;
+package ex1.src;
+
 
 public abstract class Animal implements SoundsMaker {
     static int numberOfAnimals = 0;
@@ -19,7 +20,7 @@ public abstract class Animal implements SoundsMaker {
 
     public abstract String getAnimalType();
 
-    public int getNumberOfAnimals() {
+    public static int getNumberOfAnimals() {
         return numberOfAnimals;
     }
     

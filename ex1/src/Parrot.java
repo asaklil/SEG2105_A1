@@ -1,4 +1,4 @@
-package exercise1;
+package ex1.src;
 
 public class Parrot extends Bird {
 

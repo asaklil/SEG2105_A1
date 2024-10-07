@@ -1,4 +1,4 @@
-package Exercise1;
+package ex1.src;
 
 public class Mammal extends Animal {
     static int numberOfMammals = 0;
@@ -22,7 +22,7 @@ public class Mammal extends Animal {
         System.out.println("Mammal sound");
     }
 
-    public int getNumberOfMammals() {
+    public static int getNumberOfMammals() {
         return numberOfMammals;
     }
 }
