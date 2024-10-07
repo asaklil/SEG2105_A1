@@ -25,6 +25,7 @@ public class Course {
 
     //Lets the TA instance to the course class
     private TeachingAssistant ta;
+    private String id;
 
 
     /**
@@ -105,9 +106,15 @@ public class Course {
     }
 
     //getter for the TA instance
-    public TeachingAssistant getTA() {
-        return ta;
+    public TeachingAssistant getTA(String id) {
+        if(this.id == id){
+            return ta;
+        }
+        else{
+            return null;
+        }
     }
+
 
     /**
      * Sets the professor teaching the course.
