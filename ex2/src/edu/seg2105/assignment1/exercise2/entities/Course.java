@@ -23,6 +23,10 @@ public class Course {
     // The list of students enrolled in the course
     private List<Student> students;
 
+    //Lets the TA instance to the course class
+    private TeachingAssistant ta;
+
+
     /**
      * Constructs a new Course with the specified details.
      *
@@ -100,6 +104,11 @@ public class Course {
         return professor;
     }
 
+    //getter for the TA instance
+    public TeachingAssistant getTA() {
+        return ta;
+    }
+
     /**
      * Sets the professor teaching the course.
      *
@@ -107,6 +116,10 @@ public class Course {
      */
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public void setTA(TeachingAssistant ta) {
+        this.ta = ta;
     }
 
     /**
@@ -134,6 +147,10 @@ public class Course {
      */
     private String getProfessorName() {
         return professor != null ? professor.getFirstName() + " " + professor.getLastName() : "Not yet assigned";
+    }
+
+    private String getTAName() {
+        return ta != null ? ta.getFirstName() + " " + ta.getLastName() : "Not yet assigned";
     }
 
     /**
@@ -189,6 +206,7 @@ public class Course {
                 + "\tCourse title: " + courseTitle + "\n"
                 + "\tCourse description: " + courseDescription + "\n"
                 + "\tCourse instructor: " + getProfessorName() + "\n"
+                + "\tCourse TA: " + getTAName() + "\n"
                 + (students.size() > 0 ? "\tList of registered students:" + getStudentTable() : "");
     }
 }

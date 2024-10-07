@@ -10,6 +10,7 @@ import edu.seg2105.assignment1.exercise2.entities.Employee;
 import edu.seg2105.assignment1.exercise2.entities.Instructor;
 import edu.seg2105.assignment1.exercise2.entities.Professor;
 import edu.seg2105.assignment1.exercise2.entities.Student;
+import edu.seg2105.assignment1.exercise2.entities.TeachingAssistant;
 
 /**
  * The UniversityManagementSystem processes the commands that are received by the user interface.
@@ -88,8 +89,10 @@ public class UniversityManagementSystem {
 			employee = new Professor(firstName, lastName, id, salary);
 		else if (entity.startsWith("ADMIN"))
 			employee = new Administrator(firstName, lastName, id, salary);
+		else if (entity.startsWith("TEACHINGASSISTANT"))
+			// The TA employee 
+			employee = new TeachingAssistant(firstName, lastName, id, salary);
 		else {
-			// TODO Add code for the TA employee
 			employee = null; // This line is temporary (should be changed once you add the TA employee functionality
 			
 		}
@@ -142,8 +145,8 @@ public class UniversityManagementSystem {
 		for (Employee employee : employees) {
 			if (entity.startsWith("EMPLOYEE") || // print all employees if the entity is employee
 				entity.startsWith("PROFESSOR") && employee instanceof Professor || // print only professors if the entity is professor
-				entity.startsWith("ADMIN") && employee instanceof Administrator  // print only administrators if the entity is administor
-				// TODO add a condition for the TA
+				entity.startsWith("ADMIN") && employee instanceof Administrator || // print only administrators if the entity is administor
+				entity.startsWith("TEACHINGASSISTANT") && employee instanceof TeachingAssistant 
 				)
 				
 				ui.display(employee);
@@ -273,7 +276,14 @@ public class UniversityManagementSystem {
 				ui.display("Professor added");
 				ui.display(course);
 			}
-			// TODO Add code necessary to add TAs to a course
+			if (instructor instanceof TeachingAssistant) { 
+				// The instructor is a professor, therefore add them as a professor
+				course.setTA((TeachingAssistant)instructor);
+				store.updateCourse(course);
+
+				ui.display("TA added");
+				ui.display(course);
+			}
 		}
 		else {
 			
@@ -288,8 +298,17 @@ public class UniversityManagementSystem {
 	 * @param input the list of arguments for adding a professor to a course
 	 */
 	public void processAssignAdministrator(String id, String task) {
+		// Find administrator using the employee id
+		Administrator administrator = (Administrator) store.getEmployee(id);
 
-		// TODO Complete this method so that an administrator can be assigned tasks
+		if (administrator == null) {
+			ui.display("Incorrect employee id");
+			return;
+		}
+		
+		administrator.addTask(task);
+		store.updateEmployee(administrator);
+
 	}
 	
 	

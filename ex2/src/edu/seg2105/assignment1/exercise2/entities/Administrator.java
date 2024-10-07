@@ -27,6 +27,17 @@ public class Administrator extends Employee{
 		tasks = new ArrayList<String>();
 	}
 	
+	public void addTask(String task) {
+		tasks.add(task);
+	}
+
+	public String getTask(int index) {
+		return tasks.get(index);
+	}
+
+	public String toString() {
+		return super.toString() + " (Administrator)";
+	}
 
 
 }
