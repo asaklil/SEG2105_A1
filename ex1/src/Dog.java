@@ -13,12 +13,13 @@ public class Dog extends Mammal {
     }
 
     public void makeSound() {
-        System.out.println("Dog sound");
+        System.out.println("Woof!");
     }
     
     public String getAnimalType() {
         return "Dog";
     }
+
 
 }
 

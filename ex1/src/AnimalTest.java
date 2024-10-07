@@ -43,8 +43,7 @@ public class AnimalTest {
         parrots.add(new Parrot("Rio"));
         parrots.add(new Parrot("Coco"));
 
-        
-        System.out.println("Animals making sounds:");
+        System.out.println("\nAnimals making sounds:");
         for (Animal animal : animals) {
             animal.makeSound();
         }
@@ -54,11 +53,13 @@ public class AnimalTest {
             mammal.makeSound();
         }
 
+        System.out.println();
         System.out.println("\nBirds making sounds:");
         for (Bird bird : birds) {
             bird.makeSound();
         }
 
+        System.out.println();
         System.out.println("\nDogs making sounds:");
         for (Dog dog : dogs) {
             dog.makeSound();

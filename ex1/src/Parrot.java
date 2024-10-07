@@ -13,7 +13,7 @@ public class Parrot extends Bird {
     }
 
     public void makeSound() {
-        System.out.println("Parrot sound");
+        System.out.println("Squawk!");
     }
 
     public String getAnimalType() {
